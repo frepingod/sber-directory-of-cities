@@ -9,13 +9,13 @@ import static ru.sber.CityUtils.*;
 public class Main {
 
     public static void main(String[] args) {
-        List<City> originCities = getAllCities();
-        print(originCities);
+        List<City> cities = getAllCities();
+        print(cities);
 
-        List<City> citiesSortedByName = sortByNameCaseInsensitive(originCities);
-        print(citiesSortedByName);
+        sortByNameCaseInsensitive(cities);
+        print(cities);
 
-        List<City> citiesSortedByDistrictAndThenByName = sortByDistrictAndThenByNameCaseSensitive(originCities);
-        print(citiesSortedByDistrictAndThenByName);
+        sortByDistrictAndThenByNameCaseSensitive(cities);
+        print(cities);
     }
 }
