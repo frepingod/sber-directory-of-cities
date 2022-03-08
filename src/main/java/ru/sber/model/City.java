@@ -12,6 +12,6 @@ public class City {
     private String name;
     private String region;
     private String district;
-    private String population;
+    private int population;
     private String foundation;
 }
