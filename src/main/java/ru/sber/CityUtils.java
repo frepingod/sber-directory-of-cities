@@ -4,9 +4,8 @@ import ru.sber.model.City;
 
 import java.io.IOException;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class CityUtils {
 
@@ -31,6 +30,18 @@ public class CityUtils {
 
     public static void print(List<City> cities) {
         cities.forEach(System.out::println);
+    }
+
+    public static List<City> sortByNameCaseInsensitive(List<City> cities) {
+        return cities.stream()
+                .sorted(Comparator.comparing(city -> city.getName().toLowerCase()))
+                .collect(Collectors.toList());
+    }
+
+    public static List<City> sortByDistrictAndThenByNameCaseSensitive(List<City> cities) {
+        return cities.stream()
+                .sorted(Comparator.comparing(City::getDistrict).thenComparing(City::getName))
+                .collect(Collectors.toList());
     }
 
     private static City createCityFromLine(String line) {
