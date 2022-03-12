@@ -20,6 +20,9 @@ public class Main {
         print(cities);
 
         Map<Integer, Integer> cityWithHighestPopulation = getCityIndexAndValueWithHighestPopulation(cities);
-        printMap(cityWithHighestPopulation);
+        printMapPopulation(cityWithHighestPopulation);
+
+        Map<String, Integer> cityNumbersByRegion = getCityNumbersByRegion(cities);
+        printMapRegion(cityNumbersByRegion);
     }
 }

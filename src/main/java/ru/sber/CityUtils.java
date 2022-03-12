@@ -27,10 +27,6 @@ public class CityUtils {
         return cities;
     }
 
-    public static void print(List<City> cities) {
-        cities.forEach(System.out::println);
-    }
-
     public static void sortByNameCaseInsensitive(List<City> cities) {
         cities.sort((o1, o2) -> o1.getName().compareToIgnoreCase(o2.getName()));
     }
@@ -55,8 +51,29 @@ public class CityUtils {
         return Map.of(index, value);
     }
 
-    public static void printMap(Map<Integer, Integer> map) {
+    public static Map<String, Integer> getCityNumbersByRegion(List<City> cities) {
+        final Map<String, Integer> result = new HashMap<>();
+        for (City city : cities) {
+            String key = city.getRegion();
+            int count = 1;
+            if (result.containsKey(key)) {
+                count += result.get(key);
+            }
+            result.put(key, count);
+        }
+        return result;
+    }
+
+    public static void print(List<City> cities) {
+        cities.forEach(System.out::println);
+    }
+
+    public static void printMapPopulation(Map<Integer, Integer> map) {
         map.forEach((key, value) -> System.out.printf("[%d] = %d%n", key, value));
+    }
+
+    public static void printMapRegion(Map<String, Integer> map) {
+        map.forEach((key, value) -> System.out.printf("%s - %d%n", key, value));
     }
 
     private static City createCityFromLine(String line) {
