@@ -5,6 +5,7 @@ import ru.sber.model.City;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class CityUtils {
 
@@ -62,6 +63,10 @@ public class CityUtils {
             result.put(key, count);
         }
         return result;
+    }
+
+    public static Map<String, Integer> getCityNumbersByRegion2(List<City> cities) {
+        return cities.stream().collect(Collectors.toMap(City::getRegion, city -> 1, Integer::sum));
     }
 
     public static void print(List<City> cities) {

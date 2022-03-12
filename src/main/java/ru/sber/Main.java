@@ -24,5 +24,8 @@ public class Main {
 
         Map<String, Integer> cityNumbersByRegion = getCityNumbersByRegion(cities);
         printMapRegion(cityNumbersByRegion);
+
+        Map<String, Integer> cityNumbersByRegion2 = getCityNumbersByRegion2(cities);
+        printMapRegion(cityNumbersByRegion2);
     }
 }
