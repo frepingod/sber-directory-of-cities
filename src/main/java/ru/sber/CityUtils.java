@@ -39,6 +39,26 @@ public class CityUtils {
         cities.sort(Comparator.comparing(City::getDistrict).thenComparing(City::getName));
     }
 
+    public static Map<Integer, Integer> getCityIndexAndValueWithHighestPopulation(List<City> cities) {
+        City[] arrayCities = cities.toArray(new City[0]);
+        int index = -1;
+        int value = Integer.MIN_VALUE;
+
+        for (int i = 0; i < arrayCities.length; i++) {
+            int currentPopulation = arrayCities[i].getPopulation();
+            if (currentPopulation > value) {
+                index = i;
+                value = currentPopulation;
+            }
+        }
+        //key - индекс города в массиве, value - самая высокая численность населения
+        return Map.of(index, value);
+    }
+
+    public static void printMap(Map<Integer, Integer> map) {
+        map.forEach((key, value) -> System.out.printf("[%d] = %d%n", key, value));
+    }
+
     private static City createCityFromLine(String line) {
         final Scanner scanner = new Scanner(line);
         scanner.useDelimiter(SEMICOLON); // Задается разделитель в строке с данными

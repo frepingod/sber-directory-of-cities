@@ -3,6 +3,7 @@ package ru.sber;
 import ru.sber.model.City;
 
 import java.util.List;
+import java.util.Map;
 
 import static ru.sber.CityUtils.*;
 
@@ -17,5 +18,8 @@ public class Main {
 
         sortByDistrictAndThenByNameCaseSensitive(cities);
         print(cities);
+
+        Map<Integer, Integer> cityWithHighestPopulation = getCityIndexAndValueWithHighestPopulation(cities);
+        printMap(cityWithHighestPopulation);
     }
 }
